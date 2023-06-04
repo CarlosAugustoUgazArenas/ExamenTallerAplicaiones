@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Usuario(models.Model) :
-    name = models.CharField(max_length = 100 , blank = False , null = False)
+    name = models.CharField(max_length = 120 , blank = False , null = False)
     email = models.EmailField()
     telefono = models.IntegerField()
     
@@ -12,4 +12,4 @@ class Usuario(models.Model) :
         verbose_name_plural = "usuarios"
     
     def __str__(self) :
-        return f'Tipodoc : { self.name }'
+        return f'Usuario : { self.name }'

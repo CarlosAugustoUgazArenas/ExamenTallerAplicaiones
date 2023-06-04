@@ -8,14 +8,12 @@
     <title>inicio</title>
     <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
   </head>
-  <body>
-    
-    <div class="container mt-5">
 
+  <body>
+    <div class="container mt-5">
         <form method="POST">
             {% csrf_token %}
             {{ usuario_form.as_p }}
-
             <button class="btn btn-success">Crear</button>
         </form>
 

@@ -3,5 +3,5 @@ from django.urls import path
 import gestion.views as v
 
 urlpatterns = [
-    path('gestion/', v.index ,name='citas'),
+    path('gestion/', v.index ,name='indexGestion'),
 ]
