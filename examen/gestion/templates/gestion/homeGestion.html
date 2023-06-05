@@ -26,15 +26,21 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="{% url 'indexUsuario' %}"
-                >Usuarios
+              <a class="nav-link active" href="{% url 'indexPaciente' %}"
+                >Paciente
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'homeGestion' %}"
-                >Gestion Medica
+              <a class="nav-link" href="{% url 'indexCita' %}"
+                >Cita Medica
               </a>
             </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'indexDoctor' %}"
+              >Doctores
+            </a>
+          </li>
           </ul>
           {% comment %}
           <form class="d-flex">

@@ -1,0 +1,32 @@
+{% extends "examen/home.html" %} {% block contenido %}
+<body>
+  <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %} {%for campo in formulario%}
+
+    <div class="mb-3">
+      <label for="" class="form-label">{{campo.label}}</label>
+
+      <input
+        type="{{campo.field.widget.imput_type}}"
+        class="form-control"
+        name="{{campo.name}}"
+        id=""
+        aria-describedby="helpId"
+        placeholder="{{campo.label}}"
+      />
+    </div>
+    <div class="col-12 help-text">{{campo.error}}</div>
+    {%endfor%}
+    <button class="btn btn-success" type="sumtit">Crear</button>
+  </form>
+</body>
+{% comment %} <body>
+  <div class="container mt-5">
+    <form method="POST">
+      {% csrf_token %} 
+      {{ formulario.as_p }}
+      <button class="btn btn-success">Crear</button>
+    </form>
+  </div>
+</body> {% endcomment %}
+{%endblock%}

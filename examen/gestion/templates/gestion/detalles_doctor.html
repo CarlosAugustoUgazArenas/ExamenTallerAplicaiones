@@ -1,0 +1,13 @@
+{% extends "gestion/homeGestion.html" %} {% block contenido %}
+<body>
+  <div class="container mt-5">
+    <p>Nombre : {{ doctor.name }}</p>
+    <p>Direccion : {{ doctor.direccion }}</p>
+    <p>Telefono : {{ doctor.telefono }}</p>
+
+    <a class="btn btn-outline-secondary" href="{% url 'indexDoctor' %}"
+      >Regresar Atras</a
+    >
+  </div>
+</body>
+{%endblock%}

@@ -1,0 +1,46 @@
+{% extends "gestion/homeGestion.html" %}  
+  {% block contenido %}
+  <body>
+    <div class="container">
+      <a href="crear_nuevo_usuario" class="btn btn-outline-dark mt-5"
+        >Crear Nueva Cita</a>
+
+      <table class="table table-bordered table-info mt-5 text-center">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in usuarios %}
+          <tr>
+            <th>{{ usuario.id }}</th>
+            <td>{{ usuario.name }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>
+              <a href="detalles_usuario_{{ usuario.id }}" class="btn btn-danger"
+                >Ver mas</a
+              >
+              <a href="editar_usuario_{{ usuario.id }}" class="btn btn-success"
+                >Editar</a
+              >
+              <a
+                href="eliminar_usuario_{{ usuario.id }}"
+                class="btn btn-primary"
+                >Eliminar</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+  {%endblock%} {% comment %}
+</html>
+{% endcomment %}
