@@ -4,8 +4,8 @@ from django.db import models
 
 class Usuario(models.Model) :
     name = models.CharField(max_length = 120 , blank = False , null = False)
-    email = models.EmailField()
-    telefono = models.IntegerField()
+    email = models.CharField(max_length = 220 ,blank = False , null = False)
+    telefono = models.IntegerField(blank = False , null = True)
     
     class Meta : 
         verbose_name = "usuario"

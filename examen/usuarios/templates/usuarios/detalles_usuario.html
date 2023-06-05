@@ -1,25 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>inicio</title>
-    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
-  </head>
-  <body>
-    
-    <div class="container mt-5">
+{% extends "examen/home.html" %} {% block contenido %}
+<body>
+  <div class="container mt-5">
+    <p>Nombre : {{ usuario.name }}</p>
+    <p>Email : {{ usuario.email }}</p>
+    <p>Telefono : {{ usuario.telefono }}</p>
 
-
-        <p>Nombre : {{ usuario.name }}</p>
-        <p>Email : {{ usuario.email }}</p>
-        <p>Telefono : {{ usuario.telefono }}</p>
-
-        <a class="btn btn-outline-secondary" href="{% url 'indexUsuario' %}">Regresar Atras</a>
-
-    </div>
-
-  </body>
-</html>
+    <a class="btn btn-outline-secondary" href="{% url 'indexUsuario' %}"
+      >Regresar Atras</a
+    >
+  </div>
+</body>
+{%endblock%}
