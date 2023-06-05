@@ -32,7 +32,7 @@ def crear_nuevo_usuario(request):
         return redirect('indexUsuario')
     else:
         formulario = UsuarioForm()
-    return render(request, 'usuarios/crear_nuevo_usuario.html',{'formulario': formulario})
+    return render(request, 'usuarios/crear_nuevo_usuario.html', {'formulario': formulario})
 
 
 def editar_usuario(request, id):

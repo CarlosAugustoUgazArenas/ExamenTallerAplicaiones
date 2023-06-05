@@ -2,35 +2,35 @@
   {% block contenido %}
   <body>
     <div class="container">
-      <a href="crear_nuevo_usuario" class="btn btn-outline-dark mt-5"
+      <a href="crear_nuevo_paciente" class="btn btn-outline-dark mt-5"
         >Crear Nuevo Paciente</a>
 
       <table class="table table-bordered table-info mt-5 text-center">
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Telefono</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
             <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
-          {% for usuario in usuarios %}
+          {% for paciente in pacientes %}
           <tr>
-            <th>{{ usuario.id }}</th>
-            <td>{{ usuario.name }}</td>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.telefono }}</td>
+            <th>{{ paciente.id }}</th>
+            <td>{{ paciente.name }}</td>
+            <td>{{ paciente.apellidos }}</td>
+            <td>{{ paciente.direccion }}</td>
             <td>
-              <a href="detalles_usuario_{{ usuario.id }}" class="btn btn-danger"
+              <a href="detalles_paciente_{{ paciente.id }}" class="btn btn-danger"
                 >Ver mas</a
               >
-              <a href="editar_usuario_{{ usuario.id }}" class="btn btn-success"
+              <a href="editar_paciente_{{ paciente.id }}" class="btn btn-success"
                 >Editar</a
               >
               <a
-                href="eliminar_usuario_{{ usuario.id }}"
+                href="eliminar_paciente_{{ paciente.id }}"
                 class="btn btn-primary"
                 >Eliminar</a
               >

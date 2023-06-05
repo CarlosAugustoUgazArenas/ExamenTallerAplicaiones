@@ -1,11 +1,11 @@
-{% extends "examen/home.html" %} {% block contenido %}
+{% extends "gestion/homeGestion.html" %} {% block contenido %}
 <body>
   <div class="container mt-5">
-    <p>Nombre : {{ usuario.name }}</p>
-    <p>Email : {{ usuario.email }}</p>
-    <p>Telefono : {{ usuario.telefono }}</p>
+    <p>Nombre : {{ paciente.name }}</p>
+    <p>Apellido : {{ paciente.apellidos }}</p>
+    <p>Direccion : {{ paciente.direccion }}</p>
 
-    <a class="btn btn-outline-secondary" href="{% url 'indexUsuario' %}"
+    <a class="btn btn-outline-secondary" href="{% url 'indexPaciente' %}"
       >Regresar Atras</a
     >
   </div>

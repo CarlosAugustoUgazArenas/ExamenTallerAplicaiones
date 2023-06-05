@@ -65,7 +65,6 @@ class Paciente(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
     apellidos = models.CharField(max_length=100, blank=False, null=False)
     direccion = models.CharField(max_length=250, blank=False, null=False)
-    created_at = models.DateTimeField(auto_now_add=True)
     tiposeguro = models.ForeignKey(
         Tiposeguro, on_delete=models.CASCADE, null=True, blank=True)
 

@@ -1,8 +1,8 @@
-{% extends "examen/home.html" %} {% block contenido %}
+{% extends "gestion/homeGestion.html" %} {% block contenido %}
 <body>
   <div class="container mb-5">
     <form method="POST">
-      {% csrf_token %} {{ usuario_form.as_p }}
+      {% csrf_token %} {{ paciente_form.as_p }}
 
       <button class="btn btn-success">Guardar</button>
     </form>

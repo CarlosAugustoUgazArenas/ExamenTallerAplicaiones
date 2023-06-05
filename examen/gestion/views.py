@@ -3,38 +3,47 @@ from gestion.models import Doctor
 from gestion.forms import DoctorForm
 from gestion.models import Cita_medica
 from gestion.models import Paciente
+from gestion.forms import PacienteForm
 
 # Create your views here.
-def home(request) :    
+
+
+def home(request):
     return render(
-        request , 'gestion/homeGestion.html' , 
+        request, 'gestion/homeGestion.html',
     )
-    
-def indexDoctor(request) :
+
+
+def indexDoctor(request):
     doctor = Doctor.objects.all()
     return render(
-        request , 'gestion/indexDoctor.html' , 
+        request, 'gestion/indexDoctor.html',
         {
-            'doctores' : doctor
+            'doctores': doctor
         }
     )
-def indexCita(request) :
+
+
+def indexCita(request):
     cita = Cita_medica.objects.all()
     return render(
-        request , 'gestion/indexCita.html' , 
+        request, 'gestion/indexCita.html',
         {
-            'citas' : cita
+            'citas': cita
         }
     )
-def indexPaciente(request) :
+
+
+def indexPaciente(request):
     paciente = Paciente.objects.all()
     return render(
-        request , 'gestion/indexPaciente.html' , 
+        request, 'gestion/indexPaciente.html',
         {
-            'pacientes' : paciente
+            'pacientes': paciente
         }
     )
-    
+
+
 def crear_nuevo_doctor(request):
     formulario = DoctorForm(request.POST)
     if formulario.is_valid():
@@ -42,7 +51,8 @@ def crear_nuevo_doctor(request):
         return redirect('indexDoctor')
     else:
         formulario = DoctorForm()
-    return render(request, 'gestion/crear_nuevo_Doctor.html',{'formularioDoc': formulario})
+    return render(request, 'gestion/crear_nuevo_Doctor.html', {'formularioDoc': formulario})
+
 
 def detalles_doctor(request, id):
     doctor = get_object_or_404(Doctor, pk=id)
@@ -61,7 +71,7 @@ def crear_nuevo_doctor(request):
         return redirect('indexDoctor')
     else:
         formulario = DoctorForm()
-    return render(request, 'gestion/crear_nuevo_doctor.html',{'formulario': formulario})
+    return render(request, 'gestion/crear_nuevo_doctor.html', {'formulario': formulario})
 
 
 def editar_doctor(request, id):
@@ -82,6 +92,7 @@ def editar_doctor(request, id):
         }
     )
 
+
 def eliminar_doctor(request, id):
     doctor = get_object_or_404(Doctor, pk=id)
 
@@ -89,3 +100,65 @@ def eliminar_doctor(request, id):
         doctor.delete()
 
     return redirect('indexDoctor')
+
+# ///////////////////////////Def de paciente
+
+
+def crear_nuevo_paciente(request):
+    formulario = PacienteForm(request.POST)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('indexPaciente')
+    else:
+        formulario = PacienteForm()
+    return render(request, 'gestion/crear_nuevo_paciente.html', {'formularioDoc': formulario})
+
+
+def detalles_paciente(request, id):
+    paciente = get_object_or_404(Paciente, pk=id)
+    return render(
+        request, 'gestion/detalles_paciente.html',
+        {
+            'paciente': paciente
+        }
+    )
+
+
+def crear_nuevo_paciente(request):
+    formulario = PacienteForm(request.POST)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('indexPaciente')
+    else:
+        formulario = PacienteForm()
+    return render(request, 'gestion/crear_nuevo_paciente.html', {'formulario': formulario})
+
+
+def editar_paciente(request, id):
+    paciente = get_object_or_404(Paciente, pk=id)
+
+    if request.method == "POST":
+        paciente_form = PacienteForm(request.POST, instance=paciente)
+        if paciente_form.is_valid():
+            paciente_form.save()
+            return redirect('indexPaciente')
+    else:
+        paciente_form = PacienteForm(instance=paciente)
+
+    return render(
+        request, 'gestion/editar_paciente.html',
+        {
+            'paciente_form': paciente_form
+        }
+    )
+
+
+def eliminar_paciente(request, id):
+    paciente = get_object_or_404(Paciente, pk=id)
+
+    if paciente:
+        paciente.delete()
+
+    return redirect('indexPaciente')
+
+# ///////////////////////////Def de CITA_MEDICA
